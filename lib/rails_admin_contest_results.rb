@@ -23,6 +23,8 @@ module RailsAdmin
         register_instance_option :link_icon do
           'icon-list-alt'
         end
+
+
       end
     end
   end

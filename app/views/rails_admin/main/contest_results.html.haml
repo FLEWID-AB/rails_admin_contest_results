@@ -1,3 +1,23 @@
-%h2 Custom action loaded and active
-%pre @abstract_model.inspect
-%pre @object.inspect
+%h2= "Contest results for #{@game.name}"
+- @object.contests.each do |contest|
+  .contest
+    %h4= "#{contest.starts_at} - #{contest.ends_at}"
+    - if @game.disable_login
+      - results = contest.anonymous_highscore_results(5)
+      %table
+        %thead
+          %tr
+            %td ID
+            %td First Name
+            %td Last Name
+            %td Total Duration
+        %tbody
+          - results.each do |result|
+            %tr
+              %td= result.anonymous_user.id
+              %td= result.anonymous_user.first_name || ""
+              %td= result.anonymous_user.last_name || ""
+              %td= result.total_duration
+
+
+
