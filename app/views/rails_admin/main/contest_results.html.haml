@@ -1,8 +1,8 @@
-%h2= "Contest results for #{@game.name}"
+%h2= "Contest results for #{@object.name}"
 - @object.contests.each do |contest|
   .contest
     %h4= "#{contest.starts_at} - #{contest.ends_at}"
-    - if @game.disable_login
+    - if @object.disable_login
       - results = contest.anonymous_highscore_results(5)
       %table
         %thead
