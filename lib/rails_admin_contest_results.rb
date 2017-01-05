@@ -12,7 +12,11 @@ module RailsAdmin
       class ContestResults < Base
         RailsAdmin::Config::Actions.register(self)
         
-        register_instance_option :object_level do
+        register_instance_option :visible? do
+          authorized? && bindings[:abstract_model].to_s == "Game"
+        end
+
+        register_instance_option :member? do
           true
         end
 
