@@ -1,0 +1,11 @@
+
+en:
+  admin:
+    actions:
+      contest_results:
+        title: "Contest Results"
+        menu: "Contest Results for %{model_label} '%{object_label}'"
+        breadcrumb: "Contest Results"
+        link: "Contest Results"
+        bulk_link: "Contest Results selected %{model_label_plural}"
+        done: "Contest Resultsed"
