@@ -1,16 +1,16 @@
 %h2= "Contest results for #{@object.name}"
 - @object.contests.each do |contest|
   .contest
-    %h4= "#{contest.starts_at} - #{contest.ends_at}"
+    %h4= "#{contest.starts_at.strftime("%d.%m.%Y")} - #{contest.ends_at.strftime("%d.%m.%Y")}"
     - if @object.disable_login
       - results = contest.anonymous_highscore_results(5)
-      %table
+      %table.table.table-striped
         %thead
           %tr
-            %td ID
-            %td First Name
-            %td Last Name
-            %td Total Duration
+            %th ID
+            %th First Name
+            %th Last Name
+            %th Total Duration
         %tbody
           - results.each do |result|
             %tr
@@ -18,6 +18,21 @@
               %td= result.anonymous_user.first_name || ""
               %td= result.anonymous_user.last_name || ""
               %td= result.total_duration
-
+    - else
+      - results = contest.highscore_results(5)
+      %table.table.table-striped
+        %thead
+          %tr
+            %th ID
+            %th First Name
+            %th Last Name
+            %th Total Duration
+        %tbody
+          - results.each do | result |
+            %tr
+              %td= result.user.id
+              %td= result.user.first_name || ""
+              %td= result.user.last_name || ""
+              %td= result.total_duration
 
 
