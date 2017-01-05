@@ -1,7 +1,19 @@
 :css
   .contest {
     margin-bottom: 2em;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-right: 2em;
+    border-radius: 10px;
   }
+  .contest h3 {
+    background: #eee;
+    margin: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: .5em;
+    border-bottom: 1px solid #ccc;
+   }
 %h2= "Contest results for #{@object.name}"
 - @object.contests.order('starts_at desc').each do |contest|
   .contest
