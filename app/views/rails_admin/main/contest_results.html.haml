@@ -1,5 +1,5 @@
 %h2= "Contest results for #{@object.name}"
-- @object.contests.each do |contest|
+- @object.contests.order('starts_at desc').each do |contest|
   .contest
     %h4= "#{contest.starts_at.strftime("%d.%m.%Y")} - #{contest.ends_at.strftime("%d.%m.%Y")}"
     - if @object.disable_login
