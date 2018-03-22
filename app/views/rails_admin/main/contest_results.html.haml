@@ -26,6 +26,7 @@
             %th ID
             %th First Name
             %th Last Name
+            %th Mobile
             %th Total Duration
         %tbody
           - results.each do |result|
@@ -33,6 +34,7 @@
               %td= result.anonymous_user.id
               %td= result.anonymous_user.first_name || ""
               %td= result.anonymous_user.last_name || ""
+              %td= result.anonymous_user.mobile || ""
               %td= result.total_duration
     - else
       - results = contest.highscore_results(5)
@@ -42,6 +44,7 @@
             %th ID
             %th First Name
             %th Last Name
+            %th Mobile
             %th Total Duration
         %tbody
           - results.each do | result |
@@ -49,6 +52,7 @@
               %td= result.user.id
               %td= result.user.first_name || ""
               %td= result.user.last_name || ""
+              %td= result.user.phone_number || ""
               %td= result.total_duration
 
 
